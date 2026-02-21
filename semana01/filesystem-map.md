@@ -19,3 +19,5 @@ Archivos temporales que se borran al reiniciar.
 Dispositivos del sistema representados como archivos.
 ## /proc
 Informacion del sistema y procesos en ejecucion.
+## Conclusion
+La estructura del sistema Linux organiza los archivos de forma jerarquica la raiz (/).
