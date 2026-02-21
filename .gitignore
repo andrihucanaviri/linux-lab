@@ -1,0 +1,13 @@
+# Archivos temporales
+  *.log
+  *.tmp
+  *.swp
+  *~
+
+# Sitema
+  .DS_Store
+  Thumbs.db
+
+# Carpetas de prueba
+  Test-data/
+  temp/
