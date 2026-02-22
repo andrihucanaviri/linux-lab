@@ -1,0 +1,5 @@
+# Notas 2 > notas_2.md
+  done
+
+  for i in {1..5}; do
+      echo Reporte 2
