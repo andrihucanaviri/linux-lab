@@ -1,0 +1,238 @@
+    1  Bash
+    2  sudo apt update
+    3  sudo apt install git -y
+    4  git --version
+    5  git config --global user.name Andrihu Mauricio Canaviri Vargas
+    6  git config --global user.email andrihucanaviri@gmail.com
+    7  gti config --list
+    8  git config --list
+    9  git config --global user.name Andrihu Mauricio Canaviri Vargas
+   10  git config --list
+   11  git config --global user.name
+   12  git config ..global user.name "Andrihu Mauricio Canaviri Vargas"
+   13  git config --global --list
+   14  git config --global user.name "ANDRIHU MAURICIO CANAVIRI VARGAS"
+   15  git config --global --list
+   16  ~/linux-lab
+   17  pwd
+   18  mkdir linux-lab
+   19  cd linux-lab
+   20  git init
+   21  mkdir semana01
+   22  cd semana01
+   23  touch filesystem-map.md
+   24  touch filesystem-diagram.txt
+   25  touch ejemplos-practicos.md
+   26  touch README.md
+   27  1s
+   28  ls
+   29  nano filesystem-map.md
+   30  ls
+   31  git commit -m "feat: add initial week 01 structure"
+   32  git add .
+   33  git status
+   34  cd semana01
+   35  pwd
+   36  cd linux-lab
+   37  pwd
+   38  cd linux-lab
+   39  cd semana01
+   40  ls
+   41  cat filesystem-map.md
+   42  ls
+   43  cat filesystem-diagram.txt
+   44  pwd
+   45  ls -la
+   46  cat filesystem-diagram.txt
+   47  ls
+   48  cat filesystem-map.md
+   49  cat filesystem-diagram.txt
+   50  nano filesystem-diagram.txt
+   51  cat filesystem-diagram.txt
+   52  git add filesystem-diagram.txt
+   53  git commit -m "docs: add visual filesystem diagram"
+   54  git log --oneline
+   55  git status 
+   56  nano ejemplos-practicos.md
+   57  git add ejemplo-practicos.md 
+   58  ls
+   59  cat ejemplos-practicos.md
+   60  git status
+   61  pwd
+   62  nano README.md
+   63  git add README.md
+   64  git commit -m "docs: add week 01 README overview"
+   65  git log --oneline
+   66  cd
+   67  pwd
+   68  cd linux.lab
+   69  pwd
+   70  ls
+   71  cd linux-lab
+   72  pwd
+   73  ls
+   74  nano README.md
+   75  git add README.md
+   76  git commit -m "docs: add main repository README"
+   77  git log --oneline
+   78  pwd
+   79  nano .gitignore
+   80  git add .gitignore
+   81  git commit -m "chore: add gitignore file"
+   82  git log --oneline
+   83  cd semana01
+   84  pwd
+   85  git log --oneline
+   86  nano filesystem-map.md
+   87  git add filesystem-map.md
+   88  git commit -m "feat: update filesystem documentation with conclusion"
+   89  git log --oneline
+   90  nano ejemplos-practicos.md
+   91  git add ejemplos-practicos.md
+   92  git commit -m "docs: extend practical examples with lslbk command"
+   93  cd
+   94  pwd
+   95  ls
+   96  cd linux-lab
+   97  pwd
+   98  git branch -M main
+   99  git branch
+  100  gfit status
+  101  git status
+  102  pwd
+  103  git remote add origin https://github.com/andrihucanaviri-opp/linux-lab.git
+  104  git push -u origin main
+  105  git remote remove origin
+  106  git remote add origin https://github.com/andrihucanaviri-ops/linux-lab.git
+  107  git push -u origin main
+  108  git remote -v
+  109  exit
+  110  cd ~/linux-lab
+  111  mkdir semana02
+  112  cd semana02
+  113  touch README.md
+  114  touch generate-messy-files.sh
+  115  touch organize-files.sh
+  116  touch analisis-permisos.md
+  117  git add
+  118  git add .
+  119  git commit -m "feat: create week 02 structure"
+  120  nano generate-messy-files.sh
+  121  chmod +x generate-messy-files.sh./generate-messt-files.sh
+  122  pwd
+  123  ls
+  124  ls -l
+  125  chmod +x generate-messy-files.sh
+  126  pwd
+  127  ls -l
+  128  ./generate-messy-files.sh
+  129  ls | wc -l
+  130  git add generate-messy-files.sh
+  131  git vommit -m "feat: add file generator script"
+  132  git commit -m "feat: add generator script"
+  133  git add estado-inicial.txt
+  134  git commit -m "docs: document initial messy state"
+  135  ls
+  136  nano organize-files.sh
+  137  chmod +x organize-files.sh
+  138  ./organize-files.sh
+  139  ls
+  140  ls organized
+  141  ls organized/documents
+  142  git add organize-files.sh
+  143  git add organized
+  144  git commit -m "feat: organize files into structured directories"
+  145  git status
+  146  git add .
+  147  git commit -m "feat: add remaining messy files"
+  148  git status
+  149  git push
+  150  exit
+  151  cd ~/linux-lab
+  152  mkdir semana03
+  153  cd semana03
+  154  touch README.md
+  155  touch generate-sample-log.sh
+  156  touch log-analyzer.sh
+  157  touch commands-used.md
+  158  git add
+  159  git commit -m "feat: create week 03 directory structure"
+  160  cd ~/linux-lab
+  161  echo "semana03/sample.log" >> .gitignore
+  162  echo "semana03/analysis-report.txt" >> .gitignore
+  163  git add .gitignore
+  164  git commit -m "chore: ignore generated log and report files"
+  165  nano generate-sample-log.sh
+  166  chmod +x generate-sample-log,sh
+  167  chmod +x generate-sample-log.sh
+  168  sample.log
+  169  ~/linux-lab
+  170  ~/linux-lab/semana03
+  171  cd semana03
+  172  ls
+  173  chmod +x generate-sample-log.sh
+  174  ./generate-sample-log.sh
+  175  nano generate-sample-log.sh
+  176  ./generate-sample-log.sh
+  177  ls
+  178  nano generate-sample-log.sh
+  179  chmod +x generate-sample-log.sh
+  180  ./generate-sample-log.sh
+  181  ls
+  182  head sample.log
+  183  ./log-analyzer.sh
+  184  chmod +x log-analyzer.sh
+  185  ./log-analyzer.sh
+  186  chmod +x log-analyzer.sh
+  187  ./log-analyzer.sh
+  188  ls
+  189  nano log-analyzer.sh
+  190  ./log-analyzer.sh
+  191  git add log-analyzer.sh
+  192  git commit -m "feat: add log analyzer"
+  193  ./log-analyzer,sh > analysis-report.txt
+  194  ./log-analyzer.sh > analysis-report.txt
+  195  ls
+  196  cat analysis-report.txt
+  197  ls
+  198  cat analysis-report.sh
+  199  cat analysis-report.txt
+  200  git add log-analyzer.sh
+  201  git commit -m "feat: add log analyzer"
+  202  git add README.md
+  203  git add commands-used.md
+  204  git add generate-sample-log.sh
+  205  git commit -m "docs: add documentation and generator script"
+  206  "docs: add documentation and generator script"
+  207  git status
+  208  git add generate-sample-log.sh
+  209  git commit -m "feat: add generator script"
+  210  git push origin main
+  211  ls
+  212  git log --oneline
+  213  git add generate-sample-log.sh
+  214  git commit -m "feat: add generator script"
+  215  git add generate-sample-log.sh
+  216  git commit -m "feat: add generator script"
+  217  git add ./generate-sample-log.sh
+  218  git commit -m "feat: add generator script"
+  219  git add -f generate-sample-log.sh
+  220  git commit -m "feat: add generator script"
+  221  ls
+  222  pwd
+  223  ls
+  224  ls *.sh
+  225  ls sample.log
+  226  ./log-analyzer.sh
+  227  git log --online
+  228  git log oneline
+  229  git log --oneline
+  230  git status
+  231  ls -l
+  232  ls
+  233  git log --oneline
+  234  tree
+  235  history > comandos.txt
+  236  cat comandos.txt
+  237  xed comandos.txt
+  238  history > comandos.txt
