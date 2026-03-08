@@ -1,0 +1,34 @@
+# ~/.bashrc - Configuración del enotorno
+
+case $- in
+*i*) ;;
+*) return;;
+esac
+
+# HISTORIAL
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups:ignorespace
+shopt -s histappend
+
+# OPCIONES
+shopt -s checkwinsize
+shopt -s cdspell
+shopt -s globstar
+
+# VARIABLES
+export EDITOR='vim'
+export VISUAL='vim'
+export PAGER='less'
+export LANG='es_ES.UTF-8'
+
+# PATH
+export PATH="$HOME/scripts:$PATH"
+
+# PROMPT
+PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\$ '
+
+# CARGAR ALIASES
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
