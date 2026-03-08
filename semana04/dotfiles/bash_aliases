@@ -1,0 +1,40 @@
+# ~/.bash_aliases
+
+# LISTAR
+alias ll='ls -lhF --color=auto'
+alias la='ls -lhaF --color=auto'
+alias l='ls -CF --color=auto'
+
+# NAVEGACION
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias lab='cd ~/linux-lab'
+
+# SEGURIDAD
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# SISTEMA
+alias c='clear'
+alias cls='clear'
+alias df='df -hT'
+alias du='du -ah'
+alias mem='free -h'
+
+# GIT 
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --all'
+
+# FUNCIONES
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+extraer() {
+  tar xf "$1"
+} 
