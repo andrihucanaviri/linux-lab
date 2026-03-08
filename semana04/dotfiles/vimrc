@@ -1,0 +1,25 @@
+" ~/.vimrc - Configuración de vim
+
+set nocompatible
+syntax on
+set encoding=utf-8
+
+" Apariencia
+set number
+set cursorline
+set showmode
+set ruler
+set laststatus=2
+
+" Indentación
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+" Búsqueda
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
