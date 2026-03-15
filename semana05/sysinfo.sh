@@ -106,16 +106,41 @@ awk '{printf "%-20s %6s %6s %6s %5s\n",$6,$2,$3,$4,$5}'
 echo ""
 }
 
+# === Seccion Procesos ===
+seccion_procesos () {
+echo "[ PROCESOS ]"
+echo "$SEPARADOR_SEC"
+
+total_proc=$(ps aux --no-headers | wc -l)
+mis_proc=$(ps -u "$USER" --no-headers | wc -l)
+
+printf "%-20s %s\n" "Total en sistema:" "$total_proc"
+printf "%-20s %s\n" "De $USER:" "$mis_proc"
+
+echo ""
+echo "Top 5 por consumo de CPU:"
+
+printf "%-8s %-5s %-5s %s\n" "PID" "%CPU" "%MEM" "COMANDO"
+echo "----------------------------------------"
+
+ps aux --sort=-%cpu --no-headers | head -5 | \
+awk '{printf "%-8s %-5s %-5s %s\n",$2,$3,$4,$11}'
+
+echo ""
+}
+
 case "$MODO" in
 all)
 seccion_general
 seccion_cpu
 seccion_memoria
 seccion_disco
+seccion_procesos
 ;;
 
 cpu) seccion_cpu ;;
 mem) seccion_memoria ;;
 disk) seccion_disco ;;
+proc) seccion_procesos ;;
 
 esac
