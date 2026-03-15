@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# sysinfo.sh - Reporte del estado del sistema
+# sysinfo.sh-Reporte del estado del sistema
 # Uso: ./sysinfo.sh [--all | --cpu | --mem | --disk | --proc]
 
 readonly VERSION="1.0.0"
@@ -58,16 +57,6 @@ printf "%-18s %s\n" "Encendido:" "$(uptime -p)"
 echo ""
 }
 
-case "$MODO" in
-all)
-seccion_general
-seccion_cpu
-seccion_memoria
-;;
-cpu) seccion_cpu ;;
-mem) seccion_memoria ;;
-esac
-
 # === Seccion CPU ===
 seccion_cpu () {
 echo "[ CPU ]"
@@ -102,3 +91,31 @@ printf "%-18s %s\n" "Swap usado:" "$swap_usado"
 
 echo ""
 }
+
+# === Seccion Disco ===
+seccion_disco () {
+echo "[ USO DE DISCO ]"
+echo "$SEPARADOR_SEC"
+
+printf "%-20s %6s %6s %6s %5s\n" "Particion" "Total" "Usado" "Libre" "Uso%"
+echo "------------------------------------------------"
+
+df -h | grep -v "^tmpfs\|^udev\|^Filesystem" | \
+awk '{printf "%-20s %6s %6s %6s %5s\n",$6,$2,$3,$4,$5}'
+
+echo ""
+}
+
+case "$MODO" in
+all)
+seccion_general
+seccion_cpu
+seccion_memoria
+seccion_disco
+;;
+
+cpu) seccion_cpu ;;
+mem) seccion_memoria ;;
+disk) seccion_disco ;;
+
+esac
