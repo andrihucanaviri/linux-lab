@@ -58,6 +58,47 @@ printf "%-18s %s\n" "Encendido:" "$(uptime -p)"
 echo ""
 }
 
-if [ "$MODO" = "all" ]; then
+case "$MODO" in
+all)
 seccion_general
-fi
+seccion_cpu
+seccion_memoria
+;;
+cpu) seccion_cpu ;;
+mem) seccion_memoria ;;
+esac
+
+# === Seccion CPU ===
+seccion_cpu () {
+echo "[ CPU ]"
+echo "$SEPARADOR_SEC"
+
+nucleos=$(nproc)
+
+carga=$(uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | tr -d ',')
+
+printf "%-18s %s\n" "Nucleos:" "$nucleos"
+printf "%-18s %s\n" "Carga (1 min):" "$carga"
+
+echo ""
+}
+
+# === Seccion Memoria ===
+seccion_memoria () {
+echo "[ MEMORIA RAM ]"
+echo "$SEPARADOR_SEC"
+
+mem_total=$(free -h | awk '/^Mem:/ {print $2}')
+mem_usado=$(free -h | awk '/^Mem:/ {print $3}')
+mem_libre=$(free -h | awk '/^Mem:/ {print $4}')
+swap_total=$(free -h | awk '/^Swap:/ {print $2}')
+swap_usado=$(free -h | awk '/^Swap:/ {print $3}')
+
+printf "%-18s %s\n" "RAM total:" "$mem_total"
+printf "%-18s %s\n" "RAM usada:" "$mem_usado"
+printf "%-18s %s\n" "RAM libre:" "$mem_libre"
+printf "%-18s %s\n" "Swap total:" "$swap_total"
+printf "%-18s %s\n" "Swap usado:" "$swap_usado"
+
+echo ""
+}
