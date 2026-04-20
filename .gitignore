@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+inventario-report.md
+=======
 # Archivos temporales
   *.log
   *.tmp
@@ -13,3 +16,4 @@
   temp/
 semana03/sample.log
 semana03/analysis-report.txt
+>>>>>>> f4de38f0fb0cee6b5f94e386e9948b7668e95fdb
