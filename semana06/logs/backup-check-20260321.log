@@ -1,0 +1,62 @@
+[2026-03-21 12:18:25] [INFO   ] Inicio verificación
+[2026-03-21 12:18:25] [INFO   ] Verificando directorio
+[2026-03-21 12:18:25] [ERROR  ] Directorio no existe
+[2026-03-21 12:21:04] [INFO   ] Inicio verificación
+[2026-03-21 12:21:04] [INFO   ] Verificando directorio
+[2026-03-21 12:21:04] [OK     ] Directorio correcto
+[2026-03-21 12:21:04] [INFO   ] Buscando backups
+[2026-03-21 12:21:04] [OK     ] Backups encontrados: 1
+[2026-03-21 12:21:04] [INFO   ] Verificando antigüedad
+[2026-03-21 12:21:04] [OK     ] Backups recientes encontrados
+[2026-03-21 12:21:04] [INFO   ] Verificando tamaño
+[2026-03-21 12:21:04] [WARNING] Backup muy pequeño
+[2026-03-21 12:21:04] [INFO   ] Fin verificación
+[2026-03-21 12:25:30] [INFO   ] Inicio verificación
+[2026-03-21 12:25:30] [INFO   ] Verificando directorio
+[2026-03-21 12:25:30] [OK     ] Directorio correcto
+[2026-03-21 12:25:30] [INFO   ] Buscando backups
+[2026-03-21 12:25:30] [ERROR  ] No hay backups
+[2026-03-21 12:25:30] [INFO   ] Verificando antigüedad
+[2026-03-21 12:25:30] [OK     ] Backups recientes encontrados
+[2026-03-21 12:25:30] [INFO   ] Verificando tamaño
+[2026-03-21 12:25:30] [WARNING] Backup muy pequeño
+[2026-03-21 12:25:30] [INFO   ] Fin verificación
+[2026-03-21 12:28:22] [INFO   ] Inicio verificación
+[2026-03-21 12:28:22] [INFO   ] Verificando directorio
+[2026-03-21 12:28:22] [OK     ] Directorio correcto
+[2026-03-21 12:28:22] [INFO   ] Buscando backups
+[2026-03-21 12:28:22] [OK     ] Backups encontrados: 1
+[2026-03-21 12:28:22] [INFO   ] Verificando antigüedad
+[2026-03-21 12:28:22] [OK     ] Backups recientes encontrados
+[2026-03-21 12:28:22] [INFO   ] Verificando tamaño
+[2026-03-21 12:28:22] [WARNING] Backup muy pequeño
+[2026-03-21 12:28:22] [INFO   ] Fin verificación
+[2026-03-21 12:28:22] [INFO   ] === Verificación completada ===
+[2026-03-21 12:28:23] [OK     ] RESULTADO: todo correcto
+[2026-03-21 12:38:52] [INFO   ] Inicio verificación
+[2026-03-21 12:38:52] [INFO   ] Verificando directorio
+[2026-03-21 12:38:52] [OK     ] Directorio correcto
+[2026-03-21 12:38:52] [INFO   ] Buscando backups
+[2026-03-21 12:38:52] [OK     ] Backups encontrados: 1
+[2026-03-21 12:38:52] [INFO   ] Verificando antigüedad
+[2026-03-21 12:38:52] [OK     ] Backups recientes encontrados
+[2026-03-21 12:38:52] [INFO   ] Verificando tamaño
+[2026-03-21 12:38:52] [WARNING] Backup muy pequeño
+[2026-03-21 12:38:52] [INFO   ] Fin verificación
+[2026-03-21 12:38:52] [INFO   ] === Verificación completada ===
+[2026-03-21 12:38:52] [OK     ] RESULTADO: todo correcto
+[2026-03-21 12:41:10] [INFO   ] Inicio verificación
+[2026-03-21 12:41:10] [INFO   ] Verificando directorio
+[2026-03-21 12:41:10] [OK     ] Directorio correcto
+[2026-03-21 12:41:10] [INFO   ] Buscando backups
+[2026-03-21 12:41:10] [ERROR  ] No hay backups
+[2026-03-21 12:41:10] [INFO   ] Verificando antigüedad
+[2026-03-21 12:41:10] [OK     ] Backups recientes encontrados
+[2026-03-21 12:41:10] [INFO   ] Verificando tamaño
+[2026-03-21 12:41:10] [WARNING] Backup muy pequeño
+[2026-03-21 12:41:10] [INFO   ] Fin verificación
+[2026-03-21 12:41:11] [INFO   ] === Verificación completada ===
+[2026-03-21 12:41:11] [OK     ] RESULTADO: todo correcto
+[2026-03-21 12:41:42] [INFO   ] Inicio verificación
+[2026-03-21 12:41:42] [INFO   ] Verificando directorio
+[2026-03-21 12:41:42] [ERROR  ] Directorio no existe

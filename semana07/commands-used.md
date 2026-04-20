@@ -1,0 +1,14 @@
+seq
+sleep
+timeout
+xargs
+for
+while
+until
+break
+continue
+trap
+tee
+df
+free
+uptim
