@@ -1,0 +1,8 @@
+==============================
+ANALIZADOR DE LOGS
+==============================
+Archivo: sample.log
+Entradas: 500
+
+TOP 10 DIRECCIONES IP
+    500 192.168.1.10
