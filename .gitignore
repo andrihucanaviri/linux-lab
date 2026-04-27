@@ -1,19 +1,2 @@
-<<<<<<< HEAD
-inventario-report.md
-=======
-# Archivos temporales
-  *.log
-  *.tmp
-  *.swp
-  *~
-
-# Sitema
-  .DS_Store
-  Thumbs.db
-
-# Carpetas de prueba
-  Test-data/
-  temp/
-semana03/sample.log
-semana03/analysis-report.txt
->>>>>>> f4de38f0fb0cee6b5f94e386e9948b7668e95fdb
+semana09/reportes/*.txt
+!semana09/reportes/.gitkeep
