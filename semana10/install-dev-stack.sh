@@ -173,11 +173,47 @@ instalar_dev_stack() {
     instalar_paquete "tmux" "tmux"
     instalar_paquete "shellcheck" "ShellCheck"
 }
+# === CONFIGURACIÓN GIT ===
+configurar_git_global() {
+    log STEP "Verificando configuración de Git"
 
+    if git config --global user.name &>/dev/null; then
+        log OK "Git ya configurado: $(git config --global user.name)"
+    else
+        log WARN "Git no tiene nombre de usuario configurado."
+        log INFO "Ejecuta: git config --global user.name 'Tu Nombre'"
+        log INFO "Ejecuta: git config --global user.email 'tu@email.com'"
+    fi
+}
+
+# === RESUMEN FINAL ===
+mostrar_resumen() {
+    local total_nuevo=${#PAQUETES_INSTALADOS[@]}
+    local total_omitido=${#PAQUETES_OMITIDOS[@]}
+
+    echo ""
+    echo "=============================="
+    echo " RESUMEN DE INSTALACIÓN "
+    echo "=============================="
+    echo "Nuevos instalados: $total_nuevo"
+    echo "Ya existían: $total_omitido"
+    echo "Errores: $ERRORES"
+    echo "=============================="
+
+    if [ $ERRORES -eq 0 ]; then
+        log OK "Instalación completada exitosamente"
+        echo "Ejecuta: ./verify-install.sh"
+    else
+        log WARN "Instalación completada con errores"
+        echo "Revisa install.log"
+    fi
+}
 # === MAIN ===
 main() {
     detectar_os
     instalar_dev_stack
+    configurar_git_global
+    mostrar_resumen
 }
 
 main "$@"
