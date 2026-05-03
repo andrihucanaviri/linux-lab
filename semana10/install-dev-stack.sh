@@ -67,3 +67,117 @@ log() {
 echo "Dev Stack Installer v$VERSION" > "$LOG_FILE"
 echo "Iniciado: $TIMESTAMP" >> "$LOG_FILE"
 echo "-----------------------------------" >> "$LOG_FILE"
+# === DETECCIÓN DE OS ===
+detectar_os() {
+    log STEP "Detectando sistema operativo"
+
+    if [ -f /etc/os-release ]; then
+    OS_ID=$(grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    OS_VERSION=$(grep '^VERSION_ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    OS_NAME=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2- | tr -d '"')
+else
+    log ERROR "No se puede detectar el OS (/etc/os-release no existe)"
+    exit 1
+fi
+
+    case $OS_ID in
+        ubuntu|debian|linuxmint|pop)
+            PKG_UPDATE="apt update -qq"
+            PKG_INSTALL="apt install -y"
+            PKG_CHECK="dpkg -l"
+            log OK "OS soportado: $OS_NAME"
+            ;;
+        fedora|rhel|centos|rocky)
+            PKG_UPDATE="dnf check-update -q || true"
+            PKG_INSTALL="dnf install -y"
+            PKG_CHECK="rpm -q"
+            log WARN "OS Red Hat detectado. Algunos paquetes pueden diferir."
+            ;;
+        *)
+            log ERROR "OS no soportado: $OS_ID"
+            log INFO "Soportados: ubuntu, debian, linuxmint, fedora, rhel"
+            exit 1
+            ;;
+    esac
+
+    log INFO "OS: $OS_ID | Version: $OS_VERSION"
+}
+
+# === ROLLBACK ===
+rollback() {
+    local exit_code=$?
+    if [ $exit_code -ne 0 ] && [ ${#PAQUETES_INSTALADOS[@]} -gt 0 ]; then
+        log WARN "Error detectado. Iniciando rollback..."
+        sudo apt purge -y "${PAQUETES_INSTALADOS[@]}" 2>/dev/null || true
+        sudo apt autoremove -y 2>/dev/null || true
+        log OK "Rollback completado. Paquetes revertidos: ${PAQUETES_INSTALADOS[*]}"
+    fi
+}
+
+trap rollback EXIT
+
+# === INSTALACIÓN ===
+instalar_paquete() {
+    local paquete=$1
+    local descripcion=${2:-$paquete}
+
+    if $DRY_RUN; then
+        log INFO "[DRY-RUN] Se instalaría: $paquete"
+        return 0
+    fi
+
+    if dpkg -l "$paquete" &>/dev/null; then
+        local version
+        version=$(dpkg -l "$paquete" | grep "^ii" | awk '{print $3}')
+        log OK "$descripcion ya instalado (v$version) -- omitido"
+        PAQUETES_OMITIDOS+=("$paquete")
+    else
+        log INFO "Instalando $descripcion ($paquete)..."
+        if sudo $PKG_INSTALL "$paquete" >> "$LOG_FILE" 2>&1; then
+            log OK "$descripcion instalado correctamente"
+            PAQUETES_INSTALADOS+=("$paquete")
+        else
+            log ERROR "Falló al instalar $paquete"
+            ERRORES=$((ERRORES + 1))
+            return 1
+        fi
+    fi
+}
+
+# === DEV STACK ===
+instalar_dev_stack() {
+    log STEP "Actualizando lista de paquetes"
+
+    if ! $DRY_RUN; then
+        sudo $PKG_UPDATE >> "$LOG_FILE" 2>&1
+        log OK "Lista de paquetes actualizada"
+    fi
+
+    log STEP "Instalando herramientas esenciales"
+    instalar_paquete "git" "Git"
+    instalar_paquete "curl" "curl"
+    instalar_paquete "wget" "wget"
+    instalar_paquete "vim" "Vim"
+    instalar_paquete "tree" "tree"
+    instalar_paquete "htop" "htop"
+    instalar_paquete "jq" "jq"
+
+    log STEP "Instalando entorno de desarrollo"
+    instalar_paquete "python3" "Python 3"
+    instalar_paquete "python3-pip" "pip3"
+    instalar_paquete "build-essential" "build-essential"
+
+    log STEP "Instalando utilidades del sistema"
+    instalar_paquete "net-tools" "net-tools"
+    instalar_paquete "unzip" "unzip"
+    instalar_paquete "tmux" "tmux"
+    instalar_paquete "shellcheck" "ShellCheck"
+}
+
+# === MAIN ===
+main() {
+    detectar_os
+    instalar_dev_stack
+}
+
+main "$@"
